@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="encyptorGUI.Views.MainHomePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:encyptorGUI.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/encyptorGUI;component/Assets/shield-green.png" Stretch="None" Opacity="0.4"/>
+        </Grid.Background>
+        <TextBlock FontFamily="Audiowide" Text="Keep your files in complete safe" Foreground="White" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Grid>
+</UserControl>

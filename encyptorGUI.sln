@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "encyptorGUI", "encyptorGUI\encyptorGUI.csproj", "{0964C845-3BFA-4A23-A602-BD458830343D}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{CBB8CD9E-4891-401A-A3F3-6A65D18AB23F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0964C845-3BFA-4A23-A602-BD458830343D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0964C845-3BFA-4A23-A602-BD458830343D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0964C845-3BFA-4A23-A602-BD458830343D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0964C845-3BFA-4A23-A602-BD458830343D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBB8CD9E-4891-401A-A3F3-6A65D18AB23F}.Debug|Any CPU.ActiveCfg = Debug
+		{CBB8CD9E-4891-401A-A3F3-6A65D18AB23F}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {18EBC821-E0A6-4CC4-B27B-7FBABE533CF8}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,109 @@
+﻿<Window x:Class="encyptorGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:encyptorGUI"
+        xmlns:viewmodels="clr-namespace:encyptorGUI.ViewModels"
+        xmlns:views="clr-namespace:encyptorGUI.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" Height="600" Width="1024" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" Topmost="False" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <DataTemplate x:Name="EncryptionTemplate" DataType="{x:Type viewmodels:EncryptModel}">
+            <views:EncryptPage DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="DecryptionTemplate" DataType="{x:Type viewmodels:DecryptModel}">
+            <views:DecryptPage DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="DataFilesTemplate" DataType="{x:Type viewmodels:DataFilesModel}">
+            <views:DataFilesPage DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="MainTemplate" DataType="{x:Type viewmodels:MainViewModel}">
+            <views:MainHomePage DataContext="{Binding}"/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!-- Header -->
+        <Grid x:Name="Header" Grid.ColumnSpan="2" MouseDown="Header_MouseDown" MouseLeftButtonDown="Header_MouseLeftButtonDown">
+            <Grid.Background>
+                <ImageBrush ImageSource="Assets\Header-bg.png" Stretch="None"/>
+            </Grid.Background>
+            <StackPanel Width="30" Height="30" HorizontalAlignment="Right" Margin="0 0 30 0">
+                <Button x:Name="OptionsButton" Height="30" Width="30" Padding="0 0 0 0" Background="{x:Null}" BorderBrush="{x:Null}" Click="OptionsButton_Click">
+                    <materialDesign:PackIcon Kind="Cog" Foreground="#01FFFF"/>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="30" Height="30" Margin="15 0 0 0">
+                <Image Source="Assets\logo.png"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="55,0,0,0" Width="380">
+                <TextBlock x:Name="dash" Text="CryptoProtect / DASHBOARD" FontSize="18px" Margin="0 0 0 0" VerticalAlignment="Center" Foreground="White" FontFamily="Audiowide"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 70 0" Height="30" Width="30">
+                <TextBlock Text="AES" Foreground="#FFB62222" FontFamily="Audiowide" Opacity="0.8" VerticalAlignment="Center" Margin="0 8 0 0"/>
+                <Rectangle Height="1" Width="30" Fill="#FFAA2024" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0 0 0 0"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Menu -->
+        <Grid x:Name="Menu" Grid.Row="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="Assets/Menu-bg.png"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="220"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="210"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.Background>
+                    <ImageBrush Stretch="UniformToFill" ImageSource="Assets/shield-border.png"/>
+                </Grid.Background>
+                <Button x:Name="Home" Width="100" Height="100" Background="{x:Null}" BorderBrush="{x:Null}" Click="Home_Click">
+                    <Image Width="90" Height="90" Source="Assets/shield-green.png" HorizontalAlignment="Center"/>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Button x:Name="Encryption" Height="60" Background="{x:Null}" BorderBrush="#4A4C4F" Click="Encryption_Click">
+                    <TextBlock FontSize="15" Foreground="White" FontFamily="Audiowide" Text="Encryption" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Button x:Name="Dercyption" Height="60" Background="{x:Null}" BorderBrush="#4A4C4F" Click="Dercyption_Click">
+                    <TextBlock FontSize="15" Foreground="White" FontFamily="Audiowide" Text="Decryption" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="5">
+                <Button x:Name="CloseUP" Background="{x:Null}" BorderBrush="#4A4C4F" Click="CloseUP_Click" Height="Auto">
+                    <TextBlock FontSize="12" Foreground="White" FontFamily="Audiowide" Text="Close" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Button>
+            </Grid>
+        </Grid>
+        <!-- Main -->
+        <Grid x:Name="MainPanel" Grid.Column="1" Grid.Row="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="Assets/MainPanel-bg.png" Stretch="None"/>
+            </Grid.Background>
+        </Grid>
+        <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding}"/>
+        <Popup x:Name="popup"
+               AllowsTransparency="True"
+               VerticalOffset="0"
+               HorizontalOffset="-140"
+               StaysOpen="False">
+            <Grid>
+                <local:PopupUserControl x:Name="options" Foreground="#4A4C4F"/>
+            </Grid>
+        </Popup>
+    </Grid>
+</Window>
